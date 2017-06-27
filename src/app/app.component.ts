@@ -29,15 +29,15 @@ export class AppComponent {
   comprobarUsuario(){
 
     if(this.nuevoUsuario.nombreDeUsuario==this.Usuarios[0].nombreDeUsuario&&this.nuevoUsuario.contrasena==this.Usuarios[0].contrasena){
-      this.nuevoUsuario.estado=4;
+      this.nuevoUsuario.estado=4
 
     }
 
     else if(this.nuevoUsuario.nombreDeUsuario==this.Usuarios[1].nombreDeUsuario&&this.nuevoUsuario.contrasena==this.Usuarios[1].contrasena){
-      this.nuevoUsuario.estado=2;
+      this.nuevoUsuario.estado=2
     }
     else{
-      this.nuevoUsuario.estado=3;
+      this.nuevoUsuario.estado=3
 
     }
 

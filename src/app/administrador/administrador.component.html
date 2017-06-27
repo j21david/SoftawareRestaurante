@@ -5,33 +5,57 @@
 
   <h3>Platos Disponibles</h3>
 
-  <div>
+  <br><br><br>
 
-    <ul *ngFor="let nuevoPlato of platos">
+<div class="row">
 
-      <li> {{nuevoPlato}} </li>
+  <div style="border: groove" class="col-sm-4"  *ngFor="let nuevoPlato of platos">
+
+    <h3>{{nuevoPlato.nombre}}</h3>
+    <p> <strong> Costo: </strong> {{nuevoPlato.costo}}</p>
+    <p> <strong> Ingredientes: </strong> {{nuevoPlato.ingredientes}}</p>
+    <img [src]="nuevoPlato.foto" alt="" width="200px" height="200px">
+
+  </div>
+</div>
+</div>
+
+<br><br><br>
+
+<div class="container">
 
 
+  <div class="row">
+
+    <div class="col-md-4">
+      <h3>Ingresar un Nuevo Plato</h3>
+
+      <p>Ingrese nombre del plato</p>
+      <input class="form-control"
+             placeholder="Nombre del Plato"
+             [(ngModel)]="nuevoPlato.nombre" type="text">
+
+      <p>Ingrese costo del plato</p>
+      <input class="form-control"
+             placeholder="Costo del plato"
+             [(ngModel)]="nuevoPlato.costo" type="text">
+
+      <p>Ingrese Ingredientes del plato</p>
+      <input class="form-control"
+             placeholder="Ingredientes del plato"
+             [(ngModel)]="nuevoPlato.ingredientes" type="text">
+
+      <br><br>
+      <button  class="btn btn-primary" style="width: 350px" (click)="agregarPlato()"  >Login</button>
 
 
-    </ul>
+    </div>
+
+
 
 
 
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
