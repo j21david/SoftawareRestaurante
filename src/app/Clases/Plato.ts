@@ -9,7 +9,8 @@ export class Plato{
   constructor(public nombre?:string,
             public costo?:number,
               public ingredientes?:string,
-              public  foto?:string){
+              public  foto?:string,
+              public editar?:boolean ){
 
   }
 

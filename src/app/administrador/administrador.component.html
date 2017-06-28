@@ -1,26 +1,5 @@
 
 
-<div class="container">
-
-
-  <h3>Platos Disponibles</h3>
-
-  <br><br><br>
-
-<div class="row">
-
-  <div style="border: groove" class="col-sm-4"  *ngFor="let nuevoPlato of platos">
-
-    <h3>{{nuevoPlato.nombre}}</h3>
-    <p> <strong> Costo: </strong> {{nuevoPlato.costo}}</p>
-    <p> <strong> Ingredientes: </strong> {{nuevoPlato.ingredientes}}</p>
-    <img [src]="nuevoPlato.foto" alt="" width="200px" height="200px">
-
-  </div>
-</div>
-</div>
-
-<br><br><br>
 
 <div class="container">
 
@@ -46,7 +25,7 @@
              [(ngModel)]="nuevoPlato.ingredientes" type="text">
 
       <br><br>
-      <button  class="btn btn-primary" style="width: 350px" (click)="agregarPlato()"  >Login</button>
+      <button  class="btn btn-primary" style="width: 350px" (click)="agregarPlato()"  >Agregar</button>
 
 
     </div>
@@ -60,3 +39,43 @@
 
 
 </div>
+
+<br><br><br>
+<div class="container">
+
+
+  <h3>Platos Disponibles</h3>
+
+  <br><br><br>
+
+  <div class="row">
+
+    <div class="col-sm-4"  *ngFor="let nuevoPlato of platos; let i =index">
+
+      <div class="card" style="width: 20rem; background-color:lightgray ">
+        <img class="card-img-top" [src]="nuevoPlato.foto" alt="Card image cap">
+        <div *ngIf="!nuevoPlato.editar" class="card-block">
+          <h4 class="card-title">{{nuevoPlato.nombre}}</h4>
+          <p class="card-text">{{nuevoPlato.ingredientes}}</p>
+          <a href="#" class="btn btn-primary" (click)="nuevoPlato.editar=true" >Editar</a>
+        </div>
+        <div *ngIf="nuevoPlato.editar">
+          <input class="form-control"
+                 placeholder="Nombre del Plato"
+                 [(ngModel)]="nuevoPlato2.nombre" type="text">
+
+          <input class="form-control"
+                 placeholder="Ingredientes del plato"
+                 [(ngModel)]="nuevoPlato2.ingredientes" type="text">
+
+          <button class="btn btn-primary"(click)="actualizarPlato(i); nuevoPlato.editar=false" >Actualizar</button>
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<br><br><br><br><br><br>
