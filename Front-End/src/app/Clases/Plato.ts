@@ -10,7 +10,11 @@ export class Plato{
             public costo?:number,
               public ingredientes?:string,
               public  foto?:string,
-              public editar?:boolean ){
+              public editar?:boolean,
+              public id?:number,
+              public createdAt?:Date,
+              public updatedAt?:Date,
+  ){
 
   }
 

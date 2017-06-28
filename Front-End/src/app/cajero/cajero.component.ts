@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import{Plato} from "../Clases/Plato";
+import {Http} from "@angular/http";
 
 @Component({
   selector: 'app-cajero',
@@ -7,9 +9,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CajeroComponent implements OnInit {
 
-  constructor() { }
+  nuevoPlato:Plato= new Plato('');
+  platos:Plato[]=[]
+  constructor(private _http:Http) { }
 
   ngOnInit() {
+
+    this._http
+      .get("http://localhost:1337/Plato/")
+      .subscribe(
+        respuesta=>{
+          let rjson:Plato[] = respuesta.json();
+
+          this.platos = rjson;
+          console.log(rjson[0].id)
+          /*
+           //anadir propiedades a objetos
+           let objeto1:any = {
+           prop1:1,
+           prop2:2
+           }
+           objeto1.prop3 = 3;
+           */
+
+          console.log("Usuarios: ",respuesta);
+        },
+        error=>{
+          console.log("Error: ",error)
+
+        }
+      )
+
+
+
   }
 
 }

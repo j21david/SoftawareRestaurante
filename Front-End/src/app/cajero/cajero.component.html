@@ -1,3 +1,24 @@
-<p>
-  cajero works!
-</p>
+<div class="container">
+
+
+  <h3>Platos Disponibles</h3>
+
+  <br><br><br>
+
+  <div class="row">
+
+    <div class="col-sm-4"  *ngFor="let nuevoPlato of platos; let i =index">
+
+      <div class="card" style="width: 20rem; background-color:lightgray ">
+        <img class="card-img-top" [src]="nuevoPlato.foto" alt="Card image cap">
+        <div  class="card-block">
+          <h4 class="card-title">{{nuevoPlato.nombre}}</h4>
+          <p class="card-text">{{nuevoPlato.ingredientes}}</p>
+         </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
