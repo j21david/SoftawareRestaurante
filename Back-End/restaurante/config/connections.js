@@ -28,9 +28,9 @@ module.exports.connections = {
   * Installed by default.                                                    *
   *                                                                          *
   ***************************************************************************/
-  localDiskDb: {
-   adapter: 'sails-disk'
-  },
+  //localDiskDb: {
+   //adapter: 'sails-disk'
+  //},
 
   /***************************************************************************
   *                                                                          *
@@ -56,14 +56,11 @@ module.exports.connections = {
   * Run: npm install sails-mongo                                             *
   *                                                                          *
   ***************************************************************************/
-  // someMongodbServer: {
-  //   adapter: 'sails-mongo',
-  //   host: 'localhost',
-  //   port: 27017,
-  //   user: 'username', //optional
-  //   password: 'password', //optional
-  //   database: 'your_mongo_db_name_here' //optional
-  // },
+   someMongodbServer: {
+     adapter: 'sails-mongo',
+     host: 'localhost',
+     port: 27017
+   },
 
   /***************************************************************************
   *                                                                          *
@@ -75,12 +72,15 @@ module.exports.connections = {
   *                                                                          *
   ***************************************************************************/
   //somePostgresqlServer: {
-    // adapter: 'sails-postgresql',
-     //host: 'localhost',
-     //user: 'postgres', // optional
-     //password: 'sa', // optional
-     //database: 'Restaurante' //optional
-   //}
+    //adapter: 'sails-postgresql',
+    //database: 'localhost',
+    //host: 'localhost',
+    //user: 'postgres',
+    //password: 'sa',
+    //port: 5432,
+    //pool: false,
+    //ssl: false
+  //}
 
 
   /***************************************************************************

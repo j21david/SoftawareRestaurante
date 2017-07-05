@@ -7,8 +7,9 @@
 
 module.exports = {
 
-  //connection: 'sails-postgresql',
-  attributes: {
+  connection: 'someMongodbServer',
+
+   attributes: {
 
     nombre:{
       type:'string'
