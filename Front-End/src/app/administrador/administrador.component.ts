@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Http} from "@angular/http";
 
 import{Plato} from "../Clases/Plato";
 
@@ -14,15 +15,38 @@ export class AdministradorComponent implements OnInit {
 
   //nuevoPlato={nombre:'',costo:0.0,ingredientes:'',foto:''}
 
-  platos:Plato[]=[{nombre:'Ceviche',costo:5.50,ingredientes:'camaron,cebolla,tomate',foto:'/assets/imagenes/ceviche.jpg',editar:false}
-
-    ,{nombre:'Badera',costo:10.00,ingredientes:'concha,arroz,camarones',foto:'/assets/imagenes/bandera.jpg',editar:false}];
+  platos:Plato[]=[];
 
 
 
-  constructor() { }
+  constructor(private _http:Http) { }
 
   ngOnInit() {
+    this._http
+      .get("http://localhost:1337/Plato/")
+      .subscribe(
+        respuesta=>{
+          let rjson:Plato[] = respuesta.json();
+
+          this.platos = rjson;
+          console.log(rjson[0].id)
+          /*
+           //anadir propiedades a objetos
+           let objeto1:any = {
+           prop1:1,
+           prop2:2
+           }
+           objeto1.prop3 = 3;
+           */
+
+          console.log("Usuarios: ",respuesta);
+        },
+        error=>{
+          console.log("Error: ",error)
+
+        }
+      )
+
 
 
   }
@@ -35,13 +59,31 @@ export class AdministradorComponent implements OnInit {
     console.log(this.nuevoPlato.nombre);
     console.log(this.nuevoPlato.costo);
     console.log(this.nuevoPlato.ingredientes);
+    this.nuevoPlato.foto='/assets/imagenes/'+this.nuevoPlato.nombre+'.jpg';
+
+    this._http
+      .post("http://localhost:1337/Plato",this.nuevoPlato)
+      .subscribe(
+        respuesta=>{
+          let respuestaJson = respuesta.json()
+          this.platos.push(respuestaJson);
+          this.nuevoPlato = new Plato();
+          console.log('respuestaJson: ',respuestaJson);
+        },
+        error=>{
+          console.log("Error",error);
+        }
+      )
+
+
+    /*
     this.platos.push({
       nombre:this.nuevoPlato.nombre,
       costo:this.nuevoPlato.costo,
       ingredientes:this.nuevoPlato.ingredientes,
       editar:false
     });
-
+*/
   }
 
   actualizarPlato(i?:number){

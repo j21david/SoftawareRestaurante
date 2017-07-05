@@ -1,9 +1,37 @@
+<nav class="navbar navbar-light bg-faded">
+  <form class="form-inline">
+    <button class="btn btn-primary" type="button"  (click)="x=true" >   Pedido</button>
+        </form>
+</nav>
+<div *ngIf="x" class="row">
+  <br><br><br>
+
+  <div class="col-sm-4"  *ngFor="let nuevoPlato of carrito;">
+
+    <div class="card" style="width: 20rem; background-color:lightgray ">
+      <img class="card-img-top" [src]="nuevoPlato.foto" alt="Card image cap">
+      <div  class="card-block">
+        <h4 class="card-title">{{nuevoPlato.nombre}}</h4>
+        <p class="card-text">{{nuevoPlato.ingredientes}}</p>
+        <button class="btn btn-danger" type="button"  (click)="eliminarCarrito(nuevoPlato)" >   Eliminar Pedido</button>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
 <div class="container">
+
+  <br><br>
 
 
   <h3>Platos Disponibles</h3>
 
   <br><br><br>
+
+
 
   <div class="row">
 
@@ -14,7 +42,7 @@
         <div  class="card-block">
           <h4 class="card-title">{{nuevoPlato.nombre}}</h4>
           <p class="card-text">{{nuevoPlato.ingredientes}}</p>
-          <button  class="btn btn-primary"  >Vender</button>
+          <button  class="btn btn-primary" (click)="anadirCarrito(nuevoPlato)" >Añadir al pedido</button>
 
          </div>
 

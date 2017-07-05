@@ -9,6 +9,9 @@ import {Http} from "@angular/http";
 })
 export class CajeroComponent implements OnInit {
 
+  carrito:Plato[]=[];
+  x=false;
+
   nuevoPlato:Plato= new Plato('');
   platos:Plato[]=[]
   constructor(private _http:Http) { }
@@ -44,4 +47,22 @@ export class CajeroComponent implements OnInit {
 
   }
 
+  anadirCarrito(nuevoPlato:Plato){
+
+    this.carrito.push(nuevoPlato);
+
+
+  }
+  eliminarCarrito(nuevoPlato:Plato){
+
+
+    console.log(this.carrito.indexOf(nuevoPlato))
+    this.carrito.splice(this.carrito.indexOf(nuevoPlato),1)
+
+
+    //this.carrito.splice()
+
+
+
+  }
 }

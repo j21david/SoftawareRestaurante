@@ -15,7 +15,7 @@ module.exports = {
       type:'string'
     },
     costo:{
-      type:'integer'
+      type:'float'
     },
     ingredientes:{
       type:'string'
