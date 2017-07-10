@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import {ModuloDeRutas}  from './routes'
 import { AppComponent } from './app.component';
 import { AdministradorComponent } from './administrador/administrador.component';
 import { CajeroComponent } from './cajero/cajero.component';
@@ -16,7 +16,8 @@ import { CajeroComponent } from './cajero/cajero.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ModuloDeRutas
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -32,7 +32,10 @@
 
   </div>
 
-  <app-cajero *ngIf="nuevoUsuario.estado==2">   </app-cajero>
-  <app-administrador *ngIf="nuevoUsuario.estado==4" >   </app-administrador>
+   <button [routerLink]="['cajero']" class="btn btn-primary"  *ngIf="nuevoUsuario.estado==2"> Ingresar al modulo  </button>
+  <app-administrador [routerLink]="['administrador']" *ngIf="nuevoUsuario.estado==4" >   </app-administrador>
+
+
+  <router-outlet></router-outlet>
 
 </div>
